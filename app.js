@@ -5,7 +5,7 @@ const https = require("https");
 const ejs = require("ejs");
 
 const app = express();
-const port = process.env.PORT || 3000;
+
 
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
@@ -62,6 +62,6 @@ app.post("/failure", function(req, res) {
 });
 
 
-app.listen(port,function(){
+app.listen(process.env.PORT || 3000 ,function(){
   console.log("Server started ");
 });
