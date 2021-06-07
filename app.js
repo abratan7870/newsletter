@@ -4,6 +4,7 @@ const bodyparser = require("body-parser");
 const https = require("https");
 const ejs = require("ejs");
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.use(express.static("public"));
 
@@ -55,18 +56,12 @@ app.post("/", function(req, res) {
   request.write(jsonData);
   request.end();
 });
+
 app.post("/failure", function(req, res) {
   res.redirect("/")
 });
-let port=process.env.PORT;
-if(port===null || port=== ""){
-  port=3000;
-}
+
+
 app.listen(port,function(){
   console.log("Server started ");
 });
-
-//api key
-// c7aa895ef791d3f296948f121c579593-us6 we use same us present here in line no 29
-//listid
-//0e4f92e5ed
