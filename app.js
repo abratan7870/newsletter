@@ -3,9 +3,11 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const https = require("https");
 const ejs = require("ejs");
+
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
 app.use(bodyparser.urlencoded({
@@ -15,8 +17,6 @@ app.use(bodyparser.urlencoded({
 app.get("/", function(req, res) {
   res.render("index");
 });
-
-app.set('view engine', 'ejs');
 
 app.post("/", function(req, res) {
   const firstname = req.body.fname;
